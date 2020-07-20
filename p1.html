@@ -15,7 +15,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-  <script src="js/p1.js"></script>
+  
   <title>Document</title>
 </head>
 
@@ -33,6 +33,10 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
     </div>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search"id="searchtxt" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
   </nav>
   <div class="container my-3">
     <h2>Welcome to My Notes</h2>
@@ -43,30 +47,18 @@
         <div class="form-group">
           <textarea class="form-control" id="addtxt" rows="3"></textarea>
         </div>
-        <button class="btn btn-primary" id="addbtn">ADD NOTE</button>>
+        <button class="btn btn-primary" id="addbtn">ADD NOTE</button>
       </div>
     </div>
-
+  </div>
     <h2>Your Notes</h2>
     <hr>
-    <div class="container-fluid" id="notes">
-      <div class="my-2 mx-2 card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+    <div class="row container-fluid" id="notes">
+     
       </div>
-    
-      <div class="my-2 mx-2 card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-  </div>
+ 
 </div>
+<script src="js/p1.js"></script>
 </body>
 
 </html>
