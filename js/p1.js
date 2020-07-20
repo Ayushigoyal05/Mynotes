@@ -2,9 +2,8 @@ console.log("project 1");
 shownotes();
 let addbt = document.getElementById('addbtn');
 console.log(addbt);
-let addtxt = document.getElementById('addtxt');
-// console.log(addtxt);
 addbt.addEventListener("click", (e) => {
+    let addtitle = document.getElementById("addtitle");
     let addtxt = document.getElementById("addtxt");
     let notes = localStorage.getItem("notes");
     if (notes == null) {
@@ -13,10 +12,16 @@ addbt.addEventListener("click", (e) => {
     else {
         notesObj = JSON.parse(notes);
     }
+    let myObj={
+        title:addtitle.value,
+        text:addtxt.value
 
-    notesObj.push(addtxt.value);
+    }
+
+    notesObj.push(myObj);
     localStorage.setItem("notes", JSON.stringify(notesObj));
     addtxt.value = "";
+    addtitle.value=""
     // console.log(notesObj);
     shownotes();
 })
@@ -33,8 +38,8 @@ function shownotes() {
         html += `
             <div class=" notecard my-2 mx-2 card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Note ${index + 1}</h5>
-          <p class="card-text">${element}</p>
+          <h5 class="card-title">${element.title}</h5>
+          <p class="card-text">${element.text}</p>
           <button id="${index}" onclick="delnote(this.id)" class="btn btn-primary">DELETE NOTE</button>
         </div>
       </div>
@@ -59,24 +64,24 @@ function delnote(index) {
     else {
         notesObj = JSON.parse(notes);
     }
-    notesObj.splice(index,1)
+    notesObj.splice(index, 1)
     localStorage.setItem("notes", JSON.stringify(notesObj));
     shownotes();
 }
 
-let search=document.getElementById('searchtxt');
-search.addEventListener("input",function(){
+let search = document.getElementById('searchtxt');
+search.addEventListener("input", function () {
     // console.log("input event fire");
-    let inputval=search.value.toLowerCase();
-    let notecard=document.getElementsByClassName("notecard");
-    Array.from(notecard).forEach(function(element){
-        let cardtxt=element.getElementsByTagName("p")[0].innerText;
-        if(cardtxt.includes( inputval)){
-            element.style.display="block";
+    let inputval = search.value.toLowerCase();
+    let notecard = document.getElementsByClassName("notecard");
+    Array.from(notecard).forEach(function (element) {
+        let cardtxt = element.getElementsByTagName("p")[0].innerText;
+        if (cardtxt.includes(inputval)) {
+            element.style.display = "block";
 
         }
-        else{
-            element.style.display="none";
+        else {
+            element.style.display = "none";
         }
 
     })
